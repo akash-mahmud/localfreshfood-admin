@@ -1,5 +1,19 @@
 {
   "compilerOptions": {
+        "baseUrl": "./src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/types/*": ["types/*"],
+      "@/config/*": ["config/*"],
+
+      "@/store/*": ["store/*"],
+
+      // "@/css/*": ["styles/*"],
+      "@/http/*": ["http/*"],
+      "@/pages/*": ["screen/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/images/*": ["assets/img/*"]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],

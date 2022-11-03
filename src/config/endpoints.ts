@@ -1,9 +1,8 @@
 const endpoint = {
-    login: '/login',
-    protected: {
-        user: ''
-        
-    }
-}
+  login: "/admin/login",
+  protected: {
+    user: "/user/auth/admin",
+  },
+};
 
 export default endpoint

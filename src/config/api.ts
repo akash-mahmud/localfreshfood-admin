@@ -1,3 +1,2 @@
-const api = process.env.API_ENDPOINT
+export const api = import.meta.env.VITE_SERVER_API_ENDPOINT;
 
-export default api;

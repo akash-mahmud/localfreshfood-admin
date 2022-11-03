@@ -1,21 +1,22 @@
-import React, { useState, useContext, createContext, useEffect } from "react";
-import Axios from "axios";
+import  {  useContext, createContext, useEffect } from "react";
+
 
 import endpoints from "../config/endpoints";
+import axiosRequest from "../http/axios";
 import userStore from "../store/userStore";
 import childrenProps from "../types/props";
-const authContext = createContext({});
+import { authResponsce } from "../types/user";
+const authContext = createContext({
 
-// Provider component that wraps your app and makes auth object ...
-// ... available to any child component that calls useAuth().
+});
+
+
 
 export function ProvideAuth({ children }: childrenProps) {
   const auth = useProvideAuth();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
-// Hook for child components to get the auth object ...
-// ... and re-render when it changes.
 export const useAuth = () => {
   return useContext(authContext);
 };
@@ -27,17 +28,18 @@ function useProvideAuth() {
   const loading = userStore((store) => store.loadingUser);
 
   useEffect(() => {
-    const getUser = async () => {
+    const getUser = async (): Promise<void> => {
       try {
-        const res = await Axios.get(`${endpoints.protected.user}`, {
-          withCredentials: true,
-        });
-        if (res.data) {
-          const data = {
-            user: res.data.data,
-            loggedIn: true,
-          };
-          setuser(data);
+        const { data } = await axiosRequest.get<authResponsce>(
+          `${endpoints.protected.user}`,
+          {
+            withCredentials: true,
+          }
+        );
+        if (data) {
+
+          
+          setuser(data.admin);
         } else {
           setuser(null);
         }
@@ -50,8 +52,8 @@ function useProvideAuth() {
     getUser();
   }, []);
 
-  const signin = (email:string, password:string, cb:() => void) => {
-    return Axios({
+  const signin = (email: string, password: string, cb: () => void) => {
+    return axiosRequest({
       method: "post",
       data: {
         email: email,
@@ -60,33 +62,33 @@ function useProvideAuth() {
       withCredentials: true,
       url: `${endpoints.login}`,
     }).then((res) => {
-      if (res.data.user) {
-        Axios.get(`${endpoints.protected.user}`, {
-          withCredentials: true,
-        }).then((res) => {
-          const data = {
-            user: res.data.data,
-            loggedIn: true,
-          };
-          setuser(data);
-          setLoading(false);
-          cb();
-        });
+      if (res.data.admin) {
+        axiosRequest
+          .get<authResponsce>(`${endpoints.protected.user}`, {
+            withCredentials: true,
+          })
+          .then(({ data }) => {
+            setuser(data.admin);
+            setLoading(false);
+            cb();
+          });
       } else {
         console.error("Something went wrong");
       }
     });
   };
 
-  const signout = (cb:() => void) => {
-    Axios.get(`${process.env.REACT_APP_API_DATA}/user/logout`, {
-      withCredentials: true,
-    }).then((res) => {
-      if (res.data === "success") {
-        setuser(null);
-        cb();
-      }
-    });
+  const signout = (cb: () => void) => {
+    axiosRequest
+      .get(`${process.env.REACT_APP_API_DATA}/user/logout`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data === "success") {
+          setuser(null);
+          cb();
+        }
+      });
   };
 
   return {

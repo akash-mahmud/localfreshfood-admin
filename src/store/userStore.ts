@@ -9,7 +9,7 @@ const userStore = create<userStrore>((set) => ({
       loadingUser: data,
     }));
   },
-  setUser: (data: User) => {
+  setUser: (data: User | null) => {
     set(() => ({
       user: data,
     }));

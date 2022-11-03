@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useAuth } from "@/hooks/auth";
 import BasicLayout from "../Layout/BasicLayout";
+import { useNavigate } from "react-router-dom";
+import url from "../config/url";
 interface loginInfo {
   email: string,
   password:string
@@ -9,10 +12,13 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const auth:any = useAuth();
+  const navigate = useNavigate()
   const login = async (e:React. FormEvent<HTMLFormElement>):Promise<void> => {
- e.preventDefault();
+    e.preventDefault();
+
 try {
- 
+     await auth.signin(loginInfo.email, loginInfo.password, () => navigate("/"));
   
 } catch (error) {
   
