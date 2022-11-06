@@ -16,7 +16,6 @@ const url = {
     },
     all: {
       product: "/allproduct",
-      vendor: "/allvendor",
 
       category: "/allcategory",
       mainCategory: "/allmaincategory",
@@ -38,6 +37,7 @@ const url = {
       customers: "/customers",
     },
     vendors: {
+      add: "/addvendor",
       all: "/vendors",
       reveiwsofvendor: "/reviews/vendors",
     },

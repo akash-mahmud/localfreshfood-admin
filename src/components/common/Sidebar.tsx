@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import url from "@/config/url";
 export default function Sidebar() {
   return (
     <>
@@ -16,160 +18,166 @@ export default function Sidebar() {
             homes
           </p>
 
-          <a
-            href="./index.html"
+          <Link
+            to={url.protected.dashboard.analytics}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-chart-pie text-xs mr-2"></i>
             Analytics
-          </a>
+          </Link>
 
-          <a
-            href="./index-1.html"
+          <Link
+            to={url.protected.dashboard.ecommerce}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-shopping-cart text-xs mr-2"></i>
             ecommerce
-          </a>
+          </Link>
 
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Product
           </p>
 
-          <a
-            href="./email.html"
+          <Link
+            to={url.protected.add.product}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-envelope-open-text text-xs mr-2"></i>
             Add Product
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.all.product}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-comments text-xs mr-2"></i>
             All Product
-          </a>
+          </Link>
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Main Category
           </p>
-          <a
-            href="#"
+          <Link
+            to={url.protected.add.mainCategory}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-shield-check text-xs mr-2"></i>
             Add Main Category
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.all.mainCategory}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-calendar-edit text-xs mr-2"></i>
             All Main Category
-          </a>
+          </Link>
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Category
           </p>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.add.category}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-file-invoice-dollar text-xs mr-2"></i>
             Add Category
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.all.category}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-folder-open text-xs mr-2"></i>
             All Category
-          </a>
+          </Link>
 
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Subcategory
           </p>
 
-          <a
-            href="./typography.html"
+          <Link
+            to={url.protected.add.subCategory}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-text text-xs mr-2"></i>
             Add Subcategory
-          </a>
+          </Link>
 
-          <a
-            href="./alert.html"
+          <Link
+            to={url.protected.all.subCategory}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-whistle text-xs mr-2"></i>
             All Subcategory
-          </a>
+          </Link>
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Users
           </p>
-          <a
-            href="./buttons.html"
+          <Link
+            to={url.protected.user.customers}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-cricket text-xs mr-2"></i>
             Customers
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.user.sellers}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-box-open text-xs mr-2"></i>
             Sellers
-          </a>
+          </Link>
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Orders
           </p>
-          <a
-            href="#"
+          <Link
+            to={url.protected.orders.all}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-swatchbook text-xs mr-2"></i>
             All orders
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to={url.protected.orders.vendorOrder}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-atom-alt text-xs mr-2"></i>
             Orders of vendors
-          </a>
+          </Link>
           <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
             Vendors
           </p>
-          <a
-            href="#"
+          <Link
+            to={url.protected.vendors.all}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-club text-xs mr-2"></i>
             All vendors
-          </a>
-
-          <a
-            href="#"
+          </Link>
+          <Link
+            to={url.protected.vendors.add}
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+          >
+            <i className="fad fa-store text-xs mr-2"></i>
+            Add vendor
+          </Link>
+          <Link
+            to={url.protected.vendors.reveiwsofvendor}
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-cheese-swiss text-xs mr-2"></i>
             Reveiws of Vendors
-          </a>
+          </Link>
 
-          {/* <a
+          {/* <Link
             href="#"
             className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
           >
             <i className="fad fa-computer-classic text-xs mr-2"></i>
             Components
-          </a> */}
+          </Link> */}
         </div>
       </div>
     </>

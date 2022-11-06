@@ -11,8 +11,8 @@ export default function AuthLayout({ children }: childrenProps) {
       <Navbar />
       <div className="h-screen flex flex-row flex-wrap">
 <Sidebar/>
-      </div>
       {children}
+      </div>
     </>
   );
 }

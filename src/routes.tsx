@@ -25,6 +25,7 @@ import OrderOfVendors from "./screen/orders/OrderOfVendors";
 import Customers from "./screen/user/Customers";
 import Sellers from "./screen/user/Sellers";
 import ReveiwsOfVendors from "./screen/vendor/ReveiwsOfVendors";
+import AddVendor from "./screen/vendor/AddVendor";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -59,7 +60,7 @@ const AppRoutes: React.FC = () => {
             path={url.protected.all.subCategory}
             element={<AllSubCategory />}
           />
-          <Route path={url.protected.all.vendor} element={<AllVendor />} />
+          <Route path={url.protected.vendors.all} element={<AllVendor />} />
           <Route
             path={url.protected.detail.category}
             element={<CategoryDetail />}
@@ -67,6 +68,10 @@ const AppRoutes: React.FC = () => {
           <Route
             path={url.protected.detail.mainCategory}
             element={<MainCategoryDetail />}
+          />
+          <Route
+            path={url.protected.vendors.add}
+            element={<AddVendor />}
           />
           <Route
             path={url.protected.detail.product}
