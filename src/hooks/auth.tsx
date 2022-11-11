@@ -1,4 +1,5 @@
 import  {  useContext, createContext, useEffect } from "react";
+import { toast } from "react-toastify";
 
 
 import endpoints from "../config/endpoints";
@@ -70,11 +71,18 @@ function useProvideAuth() {
           .then(({ data }) => {
             setuser(data.admin);
             setLoading(false);
-            cb();
+            toast.info("Successfuly logged in");
+            setTimeout(() => {
+                 cb();
+            }, 1000)
+         
           });
       } else {
         console.error("Something went wrong");
+              toast.error("Something went wrong");
       }
+    }).catch((e:any) => {
+      toast.error(e.message)
     });
   };
 
