@@ -1,13 +1,13 @@
 import AuthLayout from "../../Layout/AuthLayout";
 import React, { useState } from "react";
-import { IMainCategory } from "interface/MainCategoryInterface";
+import { IMainCategoryInput } from "interface/MainCategoryInterface";
 import { toast } from "react-toastify";
 import endpoint from "@/config/endpoints";
 import axiosRequest from "@/http/axios";
 import Skeleton from "react-loading-skeleton";
 const AddMainCategory = () => {
   const [loading, setloading] = useState<Boolean>(false);
-  const [mainCategory, setmainCategory] = useState<IMainCategory>({
+  const [mainCategory, setmainCategory] = useState<IMainCategoryInput>({
     name: "",
     pageTitle: "",
     pageDesc: "",
@@ -57,7 +57,7 @@ const AddMainCategory = () => {
             ) : (
               <input
                 type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                 required
                 value={mainCategory.name}
                 onChange={(e) =>
@@ -81,7 +81,7 @@ const AddMainCategory = () => {
             ) : (
               <input
                 type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                 required
                 value={mainCategory.pageTitle}
                 onChange={(e) =>
@@ -105,7 +105,7 @@ const AddMainCategory = () => {
             ) : (
               <input
                 type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                 required
                 value={mainCategory.pageDesc}
                 onChange={(e) =>
@@ -129,7 +129,7 @@ const AddMainCategory = () => {
             ) : (
               <input
                 type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                 required
                 value={mainCategory.tags}
                 onChange={(e) =>

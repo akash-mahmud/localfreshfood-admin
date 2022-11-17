@@ -1,13 +1,12 @@
 import { ICategory } from './../interface/Catgory';
-export default interface Category extends ICategory{
 
-}
 
 export interface categoryStrore {
-  category: [] | Category;
+  category: [] | ICategory[];
   loading: boolean;
+  hasMore: boolean;
   setLoading: (data: boolean) => void;
-  setCategory: (data: Category | []) => void;
+  getCategory: (page: number) => void;
 }
 
 
