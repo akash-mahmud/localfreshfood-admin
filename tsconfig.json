@@ -31,5 +31,6 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
+   "types": ["cypress", "node"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

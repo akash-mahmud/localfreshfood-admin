@@ -27,8 +27,8 @@ app.use(
       "http://127.0.0.1:3000",
       "http://localhost:3000",
       "https://www.localfreshfoods.co.uk",
-      "http://admin.localfreshfoods.co.uk",
-      "http://api.localfreshfoods.co.uk",
+"https://admin.localfreshfoods.co.uk",
+      "https://api.localfreshfoods.co.uk",
     ],
   })
 );
@@ -46,7 +46,7 @@ app.use(
         "'self'",
         "https://api.cloudinary.com",
         "http://localhost:8000",
-
+"https://admin.localfreshfoods.co.uk",
         "http://api.localfreshfoods.co.uk",
       ],
       "style-src": ["'self'", "'unsafe-inline'", "fonts.googleapis.com"],

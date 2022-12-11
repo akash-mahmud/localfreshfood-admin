@@ -14,9 +14,11 @@ const endpoint = {
       product: "/product",
       category: "/category",
       subCategory: "/subCategory",
+      vendor: "/vendor",
     },
     add: {
       mainCategory: "/mainCategory",
+      vendor: "/vendor",
       product: "/product",
       category: "/category",
       subCategory: "/subCategory",
