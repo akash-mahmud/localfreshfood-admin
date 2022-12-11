@@ -8,9 +8,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const AllVendor = () => {
     const [page, setpage] = useState<number>(1);
     const { getVendor, vendors, loading, hasMore } = vendorStore();
-    useEffect(() => {
-      getVendor(1);
+  useEffect(() => {
+    if (vendors.length===0) {
+              getVendor(1);
+      }
+
     }, []);
+  
     const loadMore = async (): Promise<void> => {
       getVendor(page);
       setpage((previousPage) => previousPage + 1);
@@ -193,7 +197,7 @@ const AllVendor = () => {
         dataLength={vendors.length} //This is important field to render the next data
         next={loadMore}
         hasMore={hasMore}
-        scrollThreshold={0.5}
+        // scrollThreshold={0.5}
         loader={<Skeleton />}
         children={undefined}
       ></InfiniteScroll>

@@ -10,7 +10,10 @@ const AllMainCategory = () => {
   const [page, setpage] = useState<number>(1);
   const { getMainCategory, mainCategory, loading, hasMore } = mainCategoryStore();
   useEffect(() => {
-    getMainCategory(1);
+    if (mainCategory.length === 0) {
+      getMainCategory(1);
+    }
+
   }, []);
   const loadMore = async (): Promise<void> => {
     getMainCategory(page);

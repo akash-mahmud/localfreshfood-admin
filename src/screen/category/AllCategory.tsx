@@ -10,7 +10,9 @@ const AllCategory = () => {
   const [page, setpage] = useState<number>(1);
   const { getCategory, category, loading, hasMore } = categoryStore();
   useEffect(() => {
-    getCategory(1);
+    if (category.length === 0) {
+      getCategory(1);
+    }
   }, []);
   const loadMore = async (): Promise<void> => {
     getCategory(page);

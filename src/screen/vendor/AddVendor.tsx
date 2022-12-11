@@ -1,5 +1,5 @@
 import AuthLayout from "../../Layout/AuthLayout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { Editor } from "react-draft-wysiwyg";
@@ -14,6 +14,10 @@ import endpoint from "@/config/endpoints";
 import { toast } from "react-toastify";
 import categoryStore from "@/store/categoryStore";
 import { loadctegoryOptions } from "../../utils/loadOptions";
+
+import { SingleValue } from "react-select";
+import { selectOption } from "interface/CommonType";
+
 // store_name,
 //   full_name_of_vendor,
 //   email,
@@ -57,8 +61,8 @@ const AddVendor = () => {
     meta_tags: "",
     policies: "",
     vendor_logo: "",
-    userId: "",
-    categoryId: "",
+    userId: null,
+    categoryId: null,
     pageTitle: "",
     pageDesc: "",
     tags: "",
@@ -68,7 +72,11 @@ const AddVendor = () => {
       category,
       loading: categoryLoading,
       hasMore: hasMoreCategories,
-    } = categoryStore();
+  } = categoryStore();
+    useEffect(() => {
+      getCategory(1);
+
+    }, []);
   const logoUpload = (filesData: any) => {
     if (!(!logoFile && filesData.length === 0)) {
       setlogoFile(filesData[0]);
@@ -81,6 +89,7 @@ const AddVendor = () => {
       return;
     }
     try {
+
       const { status } = await axiosRequest.post(
         endpoint.protected.add.vendor,
         vendor
@@ -173,7 +182,12 @@ const AddVendor = () => {
                       hasMoreCategories
                     );
                   }}
-                  // onChange={(e) => onchangeCategory(e)}
+                  onChange={(e: SingleValue<selectOption>) => {
+                    setVendor({
+                      ...vendor,
+                      categoryId: e?.value ?? null,
+                    });
+                  }}
                 />
               )}
             </div>

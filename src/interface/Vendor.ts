@@ -15,8 +15,8 @@ export interface VendorInput {
   meta_tags: string
   policies: string
   vendor_logo: string
-  userId: string
-  categoryId: string
+  userId: string|null
+  categoryId: string|null
   pageTitle: string
   pageDesc: string
   tags: string
