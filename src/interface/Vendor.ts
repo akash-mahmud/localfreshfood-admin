@@ -1,3 +1,4 @@
+import { ICategory } from './Catgory';
 export interface VendorInput {
   store_name: string
   full_name_of_vendor: string
@@ -23,7 +24,7 @@ export interface VendorInput {
 }
 
 export interface IVendor {
-  _id:string
+  id:string
   store_name: string
   full_name_of_vendor: string
   email: string
@@ -46,7 +47,8 @@ export interface IVendor {
   pageDesc: string
   tags: string
   createdAt: string
-  updatedAt:string
+  updatedAt: string
+  category:ICategory
 }
 
 export interface IVendorStrore {

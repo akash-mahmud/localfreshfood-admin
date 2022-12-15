@@ -4,21 +4,19 @@ import vendorStore from "@/store/vendorStore";
 import Skeleton from "react-loading-skeleton";
 import formatDate from "../../utils/formatDate";
 import InfiniteScroll from "react-infinite-scroll-component";
+import imageUrl from "../../utils/imageUrlFormat";
 
 const AllVendor = () => {
-    const [page, setpage] = useState<number>(1);
-    const { getVendor, vendors, loading, hasMore } = vendorStore();
+  const [page, setpage] = useState<number>(1);
+  const { getVendor, vendors, loading, hasMore } = vendorStore();
   useEffect(() => {
-    if (vendors.length===0) {
-              getVendor(1);
-      }
+    getVendor(1);
+  }, []);
 
-    }, []);
-  
-    const loadMore = async (): Promise<void> => {
-      getVendor(page);
-      setpage((previousPage) => previousPage + 1);
-    };
+  const loadMore = async (): Promise<void> => {
+    getVendor(page);
+    setpage((previousPage) => previousPage + 1);
+  };
   return (
     <>
       <AuthLayout>
@@ -129,6 +127,15 @@ const AllVendor = () => {
                     Select
                   </th>
                   <th scope="col" className="py-3 px-6">
+                    Store name
+                  </th>
+                  <th scope="col" className="py-3 px-6">
+                    Full Name
+                  </th>
+                  <th scope="col" className="py-3 px-6">
+                    Store logo
+                  </th>
+                  <th scope="col" className="py-3 px-6">
                     Category
                   </th>
                   <th scope="col" className="py-3 px-6">
@@ -175,6 +182,40 @@ const AllVendor = () => {
                       className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       {loading ? <Skeleton /> : data.store_name}
+                    </th>
+                    <th
+                      scope="row"
+                      className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {loading ? <Skeleton /> : data.full_name_of_vendor}
+                    </th>
+                    <th
+                      scope="row"
+                      className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {loading ? (
+                        <Skeleton />
+                      ) : (
+                        <>
+                          {data.vendor_logo ? (
+                            <img
+                              style={{
+                                height: "50px",
+                                width: "50px",
+                                borderRadius: "50px",
+                              }}
+                              crossOrigin={"use-credentials"}
+                              src={imageUrl(data.vendor_logo)}
+                            />
+                          ) : null}
+                        </>
+                      )}
+                    </th>
+                    <th
+                      scope="row"
+                      className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {loading ? <Skeleton /> : data.category.name}
                     </th>
                     <td className="py-4 px-6">
                       {loading ? <Skeleton /> : data.pageTitle}

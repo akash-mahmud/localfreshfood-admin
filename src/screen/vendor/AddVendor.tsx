@@ -1,5 +1,5 @@
 import AuthLayout from "../../Layout/AuthLayout";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { Editor } from "react-draft-wysiwyg";
@@ -13,11 +13,12 @@ import axiosRequest from "@/http/axios";
 import endpoint from "@/config/endpoints";
 import { toast } from "react-toastify";
 import categoryStore from "@/store/categoryStore";
-import { loadctegoryOptions } from "../../utils/loadOptions";
+import { loadctegoryOptions, loadSellerOptions } from "../../utils/loadOptions";
 
 import { SingleValue } from "react-select";
 import { selectOption } from "interface/CommonType";
-
+import { debounce } from "lodash";
+import sellerStore from "@/store/sellerStore";
 // store_name,
 //   full_name_of_vendor,
 //   email,
@@ -42,7 +43,8 @@ const AddVendor = () => {
   const [editorState, setEditorState] = useState<EditorState>(() =>
     EditorState.createEmpty()
   );
-    const [catPage, setcatPage] = useState(2);
+  const [catPage, setcatPage] = useState(2);
+  const [sellerPgae, setsellerPgae] = useState(2);
   const [logoFile, setlogoFile] = useState();
   const [vendor, setVendor] = useState<VendorInput>({
     store_name: "",
@@ -67,21 +69,53 @@ const AddVendor = () => {
     pageDesc: "",
     tags: "",
   });
-    const {
-      getCategory,
-      category,
-      loading: categoryLoading,
-      hasMore: hasMoreCategories,
+  const {
+    getCategory,
+    category,
+    loading: categoryLoading,
+    hasMore: hasMoreCategories,
   } = categoryStore();
-    useEffect(() => {
+  const {
+    sellers,
+    getSeller,
+    loading: sellerLoading,
+    hasMore: hasMoreSellers,
+  } = sellerStore();
+  useEffect(() => {
+    if (category.length === 0) {
       getCategory(1);
-
-    }, []);
-  const logoUpload = (filesData: any) => {
-    if (!(!logoFile && filesData.length === 0)) {
-      setlogoFile(filesData[0]);
     }
-  };
+    if (sellers.length) {
+      getSeller(1);
+    }
+  }, []);
+
+  const logoUpload = async (filesData: any) => {
+      if (filesData.length !== 0) {
+        // setlogoFile(filesData[0]);
+        const formData = new FormData();
+        formData.append("image", filesData[0]);
+        const result = await axiosRequest.post(
+          endpoint.protected.media.singleUpload,
+          formData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
+        if (result.status === 200) {
+          toast.success("logo uploaded");
+          console.log(vendor);
+          
+          setVendor({
+            ...vendor,
+            vendor_logo: result.data.url,
+          });
+        } else {
+          toast.warn("Something went wrong");
+        }
+      }
+    }
+
   const save = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     if (!vendor.store_name || vendor.email || vendor.location) {
@@ -89,7 +123,6 @@ const AddVendor = () => {
       return;
     }
     try {
-
       const { status } = await axiosRequest.post(
         endpoint.protected.add.vendor,
         vendor
@@ -186,6 +219,34 @@ const AddVendor = () => {
                     setVendor({
                       ...vendor,
                       categoryId: e?.value ?? null,
+                    });
+                  }}
+                />
+              )}
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Seller
+              </label>
+              {loading ? (
+                <Skeleton />
+              ) : (
+                <AsyncPaginate
+                  isLoading={false}
+                  // loadingMessage={""}
+                  // value={currentCategory}
+                  loadOptions={(search) => {
+                    getSeller(sellerPgae);
+                    setsellerPgae((previousPage) => previousPage + 1);
+                    return loadSellerOptions(search, sellers, hasMoreSellers);
+                  }}
+                  onChange={(e: SingleValue<selectOption>) => {
+                    setVendor({
+                      ...vendor,
+                      userId: e?.value ?? null,
                     });
                   }}
                 />

@@ -1,3 +1,4 @@
+import { ISeller } from "interface/Seller";
 export const loadSubactegoryOptions = async (
   search: string,
   prevOptions: string | any[],
@@ -64,7 +65,7 @@ export const loadMainactegoryOptions = async (
   search: string,
 
   subCategory: any[],
-  hasMore:boolean
+  hasMore: boolean
 ) => {
   //   await sleep(500);
 
@@ -84,8 +85,44 @@ export const loadMainactegoryOptions = async (
     );
   }
 
+  const slicedOptions = filteredOptions;
 
-  const slicedOptions = filteredOptions
+  return {
+    options: slicedOptions,
+    hasMore,
+  };
+};
+
+export const loadSellerOptions = async (
+  search: string,
+
+  sellers: ISeller[],
+  hasMore: boolean
+) => {
+  let filteredOptions;
+  if (!search) {
+    filteredOptions = sellers?.map((data) => {
+      return {
+        label: data.first_name,
+        value: data.id,
+      };
+    });
+  } else {
+    const searchLower = search.toLowerCase();
+
+    filteredOptions = sellers
+      .filter(({ first_name }) =>
+        first_name.toLowerCase().includes(searchLower)
+      )
+      .map((data) => {
+        return {
+          label: data.first_name,
+          value: data.id,
+        };
+      });
+  }
+
+  const slicedOptions = filteredOptions;
 
   return {
     options: slicedOptions,

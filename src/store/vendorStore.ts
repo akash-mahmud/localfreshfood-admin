@@ -20,15 +20,24 @@ const vendorStore = create<IVendorStrore>((set) => ({
     const { data } = await axiosRequest.get<IVendorsResponsce>(
       `${endpoint.protected.all.vendor}/?page=${page}`
     );
+
     if (data.paginatedData.vendors.length < 25) {
       set(() => ({
         hasMore: false,
       }));
     }
-    set((state: IVendorStrore) => ({
-      vendors: [...state.vendors, ...data.paginatedData.vendors],
-      loading: false,
-    }));
+    if (page===1) {
+          set(() => ({
+            vendors:  data.paginatedData.vendors,
+            loading: false,
+          }));
+    } else {
+          set((state: IVendorStrore) => ({
+            vendors: [...state.vendors, ...data.paginatedData.vendors],
+            loading: false,
+          }));
+    }
+
   },
 }));
 

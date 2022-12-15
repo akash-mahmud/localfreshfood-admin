@@ -11,6 +11,7 @@ const endpoint = {
     },
     all: {
       mainCategory: "/mainCategory",
+      seller: "/seller",
       product: "/product",
       category: "/category",
       subCategory: "/subCategory",
@@ -28,6 +29,10 @@ const endpoint = {
       product: "/product/:id",
       category: "/category/:id",
       subCategory: "/subCategory/:id",
+    },
+    media: {
+      singleUpload: "/media/upload/single",
+      multiUpload: "/media/upload/multiple",
     },
   },
 };
