@@ -14,7 +14,10 @@ export default function Navbar() {
 
   // switchTheme();
   const toggleTheme = () => {
-    setTheme(colorTheme);
+    if (typeof setTheme !== 'string') {
+          setTheme(colorTheme);
+    }
+
 
   };
 
