@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import endpoint from "@/config/endpoints";
 import axiosRequest from "@/http/axios";
 import Skeleton from "react-loading-skeleton";
-import FormLayout from "@/layout/FormLayout";
+import FormLayout from "../../Layout/FormLayout";
 const AddMainCategory = () => {
   const [loading, setloading] = useState<Boolean>(false);
   const [mainCategory, setmainCategory] = useState<IMainCategoryInput>({

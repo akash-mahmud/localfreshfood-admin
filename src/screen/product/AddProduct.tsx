@@ -18,7 +18,7 @@ import {
   loadctegoryOptions,
   loadMainactegoryOptions,
 } from "../../utils/loadOptions";
-import FormLayout from "@/layout/FormLayout";
+import FormLayout from "../../Layout/FormLayout";
 interface selectOption {
   label: string;
   value: string;
