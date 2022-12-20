@@ -1,4 +1,4 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 
 import { DropzoneArea } from "material-ui-dropzone";
 import { useState, useEffect } from "react";
@@ -135,10 +135,7 @@ const AddProduct = () => {
   return (
     <AuthLayout>
       <FormLayout>
-        <form
-          onSubmit={save}
-         
-        >
+        <form onSubmit={save}>
           <div className="mb-6">
             <label
               htmlFor="name"
@@ -174,7 +171,8 @@ const AddProduct = () => {
             {loading ? (
               <Skeleton />
             ) : (
-              <AsyncPaginate className="bg-white dark:bg-gray-700"
+              <AsyncPaginate
+                className="bg-white dark:bg-gray-700"
                 isLoading={false}
                 // loadingMessage={""}
                 value={currentCategory}
@@ -202,10 +200,9 @@ const AddProduct = () => {
               {loading ? (
                 <Skeleton />
               ) : (
-                <DropzoneArea  filesLimit={20} onChange={handleChange} />
+                <DropzoneArea filesLimit={20} onChange={handleChange} />
               )}
             </div>
-         
           </div>
           <div className="mb-6">
             <label
@@ -218,7 +215,7 @@ const AddProduct = () => {
               {loading ? (
                 <Skeleton />
               ) : (
-                <Editor 
+                <Editor
                   editorState={editorState}
                   onEditorStateChange={(newState) => {
                     setEditorState(newState);

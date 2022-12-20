@@ -1,13 +1,11 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 import React from "react";
 
 const Ecommerce = () => {
   return (
     <>
       <AuthLayout>
-        <div >
-          
-        </div>
+        <div></div>
       </AuthLayout>
     </>
   );

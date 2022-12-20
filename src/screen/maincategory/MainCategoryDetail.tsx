@@ -1,10 +1,10 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 import React from "react";
 
 const MainCategoryDetail = () => {
   return (
     <AuthLayout>
-      <div ></div>
+      <div></div>
     </AuthLayout>
   );
 };

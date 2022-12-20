@@ -1,4 +1,4 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 import React, { useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { AsyncPaginate } from "react-select-async-paginate";
@@ -92,30 +92,30 @@ const AddVendor = () => {
   }, []);
 
   const logoUpload = async (filesData: any) => {
-      if (filesData.length !== 0) {
-        // setlogoFile(filesData[0]);
-        const formData = new FormData();
-        formData.append("image", filesData[0]);
-        const result = await axiosRequest.post(
-          endpoint.protected.media.singleUpload,
-          formData,
-          {
-            headers: { "Content-Type": "multipart/form-data" },
-          }
-        );
-        if (result.status === 200) {
-          toast.success("logo uploaded");
-          console.log(vendor);
-          
-          setVendor({
-            ...vendor,
-            vendor_logo: result.data.url,
-          });
-        } else {
-          toast.warn("Something went wrong");
+    if (filesData.length !== 0) {
+      // setlogoFile(filesData[0]);
+      const formData = new FormData();
+      formData.append("image", filesData[0]);
+      const result = await axiosRequest.post(
+        endpoint.protected.media.singleUpload,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
         }
+      );
+      if (result.status === 200) {
+        toast.success("logo uploaded");
+        console.log(vendor);
+
+        setVendor({
+          ...vendor,
+          vendor_logo: result.data.url,
+        });
+      } else {
+        toast.warn("Something went wrong");
       }
     }
+  };
 
   const save = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
@@ -141,10 +141,7 @@ const AddVendor = () => {
     <>
       <AuthLayout>
         <FormLayout>
-          <form
-            onSubmit={save}
-          
-          >
+          <form onSubmit={save}>
             <div className="mb-6">
               <label
                 htmlFor="name"

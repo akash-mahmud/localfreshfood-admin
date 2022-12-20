@@ -1,30 +1,28 @@
 import React, { useState } from "react";
 import { useAuth } from "@/hooks/auth";
-import BasicLayout from "../Layout/BasicLayout";
+import BasicLayout from "../layout/BasicLayout";
 import { useNavigate } from "react-router-dom";
 import url from "../config/url";
 interface loginInfo {
-  email: string,
-  password:string
+  email: string;
+  password: string;
 }
 export default function Login() {
   const [loginInfo, setloginInfo] = useState<loginInfo>({
     email: "",
     password: "",
   });
-  const auth:any = useAuth();
-  const navigate = useNavigate()
-  const login = async (e:React. FormEvent<HTMLFormElement>):Promise<void> => {
+  const auth: any = useAuth();
+  const navigate = useNavigate();
+  const login = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
-try {
-     await auth.signin(loginInfo.email, loginInfo.password, () => navigate("/"));
-  
-} catch (error) {
-  
-}
-    
-  }
+    try {
+      await auth.signin(loginInfo.email, loginInfo.password, () =>
+        navigate("/")
+      );
+    } catch (error) {}
+  };
   return (
     <>
       <BasicLayout>

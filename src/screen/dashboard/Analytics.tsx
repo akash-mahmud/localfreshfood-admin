@@ -1,11 +1,11 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 import React from "react";
 
 const Analytics: React.FC = () => {
   return (
     <>
       <AuthLayout>
-    <div></div>
+        <div></div>
       </AuthLayout>
     </>
   );

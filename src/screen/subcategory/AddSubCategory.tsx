@@ -1,4 +1,4 @@
-import AuthLayout from "../../Layout/AuthLayout";
+import AuthLayout from "../../layout/AuthLayout";
 import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { ISubCategoryInput } from "interface/SubCategory";
@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import Skeleton from "react-loading-skeleton";
 import axiosRequest from "@/http/axios";
 import endpoint from "@/config/endpoints";
-import FormLayout from "@/layout/FormLayout";
+import FormLayout from "layout/FormLayout";
 interface selectOption {
   label: string;
   value: string;
@@ -109,11 +109,7 @@ const AddSubCategory = () => {
   return (
     <AuthLayout>
       <FormLayout>
-        
-        <form
-          onSubmit={save}
-         
-        >
+        <form onSubmit={save}>
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -296,8 +292,7 @@ const AddSubCategory = () => {
             Submit
           </button>
         </form>
-     </FormLayout>
-   
+      </FormLayout>
     </AuthLayout>
   );
 };
