@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import Skeleton from "react-loading-skeleton";
 import axiosRequest from "@/http/axios";
 import endpoint from "@/config/endpoints";
-import FormLayout from "layout/FormLayout";
+import FormLayout from "@/layout/FormLayout";
 interface selectOption {
   label: string;
   value: string;
