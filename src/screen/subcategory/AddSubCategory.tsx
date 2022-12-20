@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { ISubCategoryInput } from "interface/SubCategory";

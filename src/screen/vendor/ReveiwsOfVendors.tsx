@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 import React from "react";
 
 const ReveiwsOfVendors = () => {

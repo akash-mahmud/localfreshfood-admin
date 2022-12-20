@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 
 const AllProduct = () => {
   return (

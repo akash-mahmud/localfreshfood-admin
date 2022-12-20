@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 import React, { useEffect, useState } from "react";
 import vendorStore from "@/store/vendorStore";
 import Skeleton from "react-loading-skeleton";

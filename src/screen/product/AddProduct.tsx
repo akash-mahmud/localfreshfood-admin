@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 
 import { DropzoneArea } from "material-ui-dropzone";
 import { useState, useEffect } from "react";

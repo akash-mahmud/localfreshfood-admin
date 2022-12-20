@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "@/hooks/auth";
-import BasicLayout from "../layout/BasicLayout";
+import BasicLayout from "../Layout/BasicLayout";
 import { useNavigate } from "react-router-dom";
 import url from "../config/url";
 interface loginInfo {

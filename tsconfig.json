@@ -5,7 +5,7 @@
       "@/components/*": ["components/*"],
       "@/types/*": ["types/*"],
       "@/config/*": ["config/*"],
-      "@/layout/*": ["layout/*"],
+      "@/layout/*": ["Layout/*"],
 
       "@/store/*": ["store/*"],
 

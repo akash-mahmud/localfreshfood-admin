@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 import React, { useState } from "react";
 import { IMainCategoryInput } from "interface/MainCategoryInterface";
 import { toast } from "react-toastify";

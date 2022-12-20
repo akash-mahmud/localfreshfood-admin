@@ -1,4 +1,4 @@
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 
 import { useState } from "react";
 import { ICategoryInput } from "interface/Catgory";

@@ -3,7 +3,7 @@ import mainCategoryStore from "@/store/maincategoryStrore";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatDate";
 import Skeleton from "react-loading-skeleton";
-import AuthLayout from "../../layout/AuthLayout";
+import AuthLayout from "../../Layout/AuthLayout";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const AllMainCategory = () => {
