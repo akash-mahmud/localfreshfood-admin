@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import Skeleton from "react-loading-skeleton";
 import axiosRequest from "@/http/axios";
 import endpoint from "@/config/endpoints";
+import FormLayout from "@/layout/FormLayout";
 interface selectOption {
   label: string;
   value: string;
@@ -107,10 +108,11 @@ const AddSubCategory = () => {
   };
   return (
     <AuthLayout>
-      <div className="bg-gray-100 flex-1 p-6 md:mt-16">
+      <FormLayout>
+        
         <form
           onSubmit={save}
-          className="bg-white p-6 border border-gray-200 shadow-md "
+         
         >
           <div className="mb-6">
             <label
@@ -294,7 +296,8 @@ const AddSubCategory = () => {
             Submit
           </button>
         </form>
-      </div>
+     </FormLayout>
+   
     </AuthLayout>
   );
 };

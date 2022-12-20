@@ -1,3 +1,8 @@
+html , body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .editor_cstm{
     height: 450px !important;
 }
@@ -16,4 +21,32 @@ width: 2px;
 } */
 .public-DraftStyleDefault-block{
     margin: 0 !important;
+}
+.dark .css-13cymwt-control ,  .dark .css-t3ipsp-control, .dark .css-1nmdiq5-menu  {
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+    color: #fff;
+} 
+.dark .css-1nmdiq5-menu:hover{
+    /* background-color: rgb(54, 62, 77); */
+}
+.dark .css-1dimb5e-singleValue{
+    color: #fff;
+}
+.dark .rdw-editor-toolbar{
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        border:1px solid rgba(255, 255, 255, 0.12)  !important;
+}
+.dark .rdw-block-wrapper ,.dark .rdw-fontsize-wrapper , .dark .rdw-fontfamily-wrapper{
+    color: black !important;
+}
+.dark .public-DraftEditor-content{
+    border:1px solid rgba(255, 255, 255, 0.12)  !important;
+    
+
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #fff), var(--tw-ring-shadow, 0 0 #fff), var(--tw-shadow);
+}
+
+.dark .MuiDropzoneArea-root{
+        background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+        border-color: rgba(255, 255, 255, 0.12)
 }

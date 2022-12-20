@@ -18,6 +18,7 @@ import {
   loadctegoryOptions,
   loadMainactegoryOptions,
 } from "../../utils/loadOptions";
+import FormLayout from "@/layout/FormLayout";
 interface selectOption {
   label: string;
   value: string;
@@ -133,10 +134,10 @@ const AddProduct = () => {
   };
   return (
     <AuthLayout>
-      <div className="bg-gray-100 flex-1 p-6 md:mt-16">
+      <FormLayout>
         <form
           onSubmit={save}
-          className="bg-white p-6 border border-gray-200 shadow-md "
+         
         >
           <div className="mb-6">
             <label
@@ -173,7 +174,7 @@ const AddProduct = () => {
             {loading ? (
               <Skeleton />
             ) : (
-              <AsyncPaginate
+              <AsyncPaginate className="bg-white dark:bg-gray-700"
                 isLoading={false}
                 // loadingMessage={""}
                 value={currentCategory}
@@ -201,17 +202,10 @@ const AddProduct = () => {
               {loading ? (
                 <Skeleton />
               ) : (
-                <DropzoneArea filesLimit={20} onChange={handleChange} />
+                <DropzoneArea  filesLimit={20} onChange={handleChange} />
               )}
             </div>
-            <div>
-              <button
-                type="button"
-                className="mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-              >
-                Upload
-              </button>
-            </div>
+         
           </div>
           <div className="mb-6">
             <label
@@ -220,11 +214,11 @@ const AddProduct = () => {
             >
               Description
             </label>
-            <div className=" border-gray-800 h-72 shadow">
+            <div className=" border-gray-800 dark:border-gray-300 dark:text-white shadow dark:bg-gray-700">
               {loading ? (
                 <Skeleton />
               ) : (
-                <Editor
+                <Editor 
                   editorState={editorState}
                   onEditorStateChange={(newState) => {
                     setEditorState(newState);
@@ -422,13 +416,13 @@ const AddProduct = () => {
 
           <button
             type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800  max-w-xs focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+            className="text-white bg-blue-700 dark:bg-gray-900 hover:bg-blue-800  max-w-xs focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 transition-all text-center  dark:hover:bg-gray-800 dark:focus:ring-blue-800 "
             disabled={loading}
           >
             Submit
           </button>
         </form>
-      </div>
+      </FormLayout>
     </AuthLayout>
   );
 };

@@ -20,7 +20,7 @@ const AllVendor = () => {
   return (
     <>
       <AuthLayout>
-        <div className="bg-gray-100 flex-1 p-6 md:mt-16">
+       
           <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
             <div className="flex p-4 justify-between items-center pb-4 bg-white dark:bg-gray-900">
               <label htmlFor="table-search" className="sr-only">
@@ -231,7 +231,7 @@ const AllVendor = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+        
         </div>
       </AuthLayout>
       <InfiniteScroll

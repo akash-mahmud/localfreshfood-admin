@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import axiosRequest from "@/http/axios";
 import endpoint from "@/config/endpoints";
 import Skeleton from "react-loading-skeleton";
+import FormLayout from "@/layout/FormLayout";
 const AddCategory = () => {
   const [loading, setloading] = useState<Boolean>(false);
   const [category, setcategory] = useState<ICategoryInput>({
@@ -54,11 +55,8 @@ const AddCategory = () => {
   return (
     <>
       <AuthLayout>
-        <div className="bg-gray-100 flex-1 p-6 md:mt-16">
-          <form
-            onSubmit={save}
-            className="bg-white p-6 border border-gray-200 shadow-md "
-          >
+        <FormLayout>
+          <form onSubmit={save}>
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -159,7 +157,7 @@ const AddCategory = () => {
               Submit
             </button>
           </form>
-        </div>
+        </FormLayout>
       </AuthLayout>
     </>
   );

@@ -5,7 +5,11 @@ export default function Sidebar() {
     <>
       <div
         id="sideBar"
-        className="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster"
+        className="relative flex flex-col flex-wrap bg-white dark:bg-gray-900
+       
+        p-6
+         flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl
+          animated faster"
       >
         <div className="flex flex-col">
           <div className="text-right hidden md:block mb-4">
@@ -14,13 +18,13 @@ export default function Sidebar() {
             </button>
           </div>
 
-          <p className="uppercase text-xs text-gray-600 mb-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 tracking-wider">
             homes
           </p>
 
           <Link
             to={url.protected.dashboard.analytics}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-chart-pie text-xs mr-2"></i>
             Analytics
@@ -28,19 +32,19 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.dashboard.ecommerce}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-shopping-cart text-xs mr-2"></i>
             ecommerce
           </Link>
 
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Product
           </p>
 
           <Link
             to={url.protected.add.product}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-envelope-open-text text-xs mr-2"></i>
             Add Product
@@ -48,17 +52,17 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.all.product}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-comments text-xs mr-2"></i>
             All Product
           </Link>
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Main Category
           </p>
           <Link
             to={url.protected.add.mainCategory}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-shield-check text-xs mr-2"></i>
             Add Main Category
@@ -66,18 +70,18 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.all.mainCategory}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-calendar-edit text-xs mr-2"></i>
             All Main Category
           </Link>
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Category
           </p>
 
           <Link
             to={url.protected.add.category}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-file-invoice-dollar text-xs mr-2"></i>
             Add Category
@@ -85,19 +89,19 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.all.category}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-folder-open text-xs mr-2"></i>
             All Category
           </Link>
 
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Subcategory
           </p>
 
           <Link
             to={url.protected.add.subCategory}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-text text-xs mr-2"></i>
             Add Subcategory
@@ -105,17 +109,17 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.all.subCategory}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-whistle text-xs mr-2"></i>
             All Subcategory
           </Link>
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Users
           </p>
           <Link
             to={url.protected.user.customers}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-cricket text-xs mr-2"></i>
             Customers
@@ -123,17 +127,17 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.user.sellers}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-box-open text-xs mr-2"></i>
             Sellers
           </Link>
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Orders
           </p>
           <Link
             to={url.protected.orders.all}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-swatchbook text-xs mr-2"></i>
             All orders
@@ -141,31 +145,31 @@ export default function Sidebar() {
 
           <Link
             to={url.protected.orders.vendorOrder}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-atom-alt text-xs mr-2"></i>
             Orders of vendors
           </Link>
-          <p className="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">
+          <p className="uppercase text-xs text-gray-600 dark:text-gray-300 mb-4 mt-4 tracking-wider">
             Vendors
           </p>
           <Link
             to={url.protected.vendors.all}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-club text-xs mr-2"></i>
             All vendors
           </Link>
           <Link
             to={url.protected.vendors.add}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-store text-xs mr-2"></i>
             Add vendor
           </Link>
           <Link
             to={url.protected.vendors.reveiwsofvendor}
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-cheese-swiss text-xs mr-2"></i>
             Reveiws of Vendors
@@ -173,7 +177,7 @@ export default function Sidebar() {
 
           {/* <Link
             href="#"
-            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500"
+            className="mb-3 capitalize font-medium text-sm hover:text-teal-600 dark:text-gray-100  transition ease-in-out duration-500"
           >
             <i className="fad fa-computer-classic text-xs mr-2"></i>
             Components

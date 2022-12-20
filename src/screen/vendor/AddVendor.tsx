@@ -19,6 +19,7 @@ import { SingleValue } from "react-select";
 import { selectOption } from "interface/CommonType";
 import { debounce } from "lodash";
 import sellerStore from "@/store/sellerStore";
+import FormLayout from "@/layout/FormLayout";
 // store_name,
 //   full_name_of_vendor,
 //   email,
@@ -139,10 +140,10 @@ const AddVendor = () => {
   return (
     <>
       <AuthLayout>
-        <div className="bg-gray-100 flex-1 p-6 md:mt-16">
+        <FormLayout>
           <form
             onSubmit={save}
-            className="bg-white p-6 border border-gray-200 shadow-md "
+          
           >
             <div className="mb-6">
               <label
@@ -422,7 +423,7 @@ const AddVendor = () => {
               Submit
             </button>
           </form>
-        </div>
+        </FormLayout>
       </AuthLayout>
     </>
   );
