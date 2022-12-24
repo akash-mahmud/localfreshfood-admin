@@ -20,6 +20,7 @@ import { selectOption } from "interface/CommonType";
 import { debounce } from "lodash";
 import sellerStore from "@/store/sellerStore";
 import FormLayout from "../../Layout/FormLayout";
+
 // store_name,
 //   full_name_of_vendor,
 //   email,
@@ -261,7 +262,7 @@ const AddVendor = () => {
                 {loading ? (
                   <Skeleton />
                 ) : (
-                  <DropzoneArea filesLimit={1} onChange={logoUpload} />
+                    <DropzoneArea  filesLimit={1}   onChange={logoUpload} />
                 )}
               </div>
             </div>

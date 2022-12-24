@@ -214,7 +214,7 @@ const AllVendor = () => {
                     scope="row"
                     className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    {loading ? <Skeleton /> : data.category.name}
+                    {loading ? <Skeleton /> : data.category?.name}
                   </th>
                   <td className="py-4 px-6">
                     {loading ? <Skeleton /> : data.pageTitle}
