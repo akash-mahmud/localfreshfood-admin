@@ -3,7 +3,10 @@ import userStore from "@/store/userStore";
 
 import useDarkSide from "@/hooks/theme";
 
-export default function Navbar() {
+interface NavbarProps {
+  toggleDrawer: () => void;
+}
+export default function Navbar({ toggleDrawer }: NavbarProps) {
   const userLoadingState = userStore(
     (state: { loadingUser: boolean }) => state.loadingUser
   );
@@ -14,29 +17,24 @@ export default function Navbar() {
 
   // switchTheme();
   const toggleTheme = () => {
-    if (typeof setTheme !== 'string') {
-          setTheme(colorTheme);
+    if (typeof setTheme !== "string") {
+      setTheme(colorTheme);
     }
-
-
   };
 
   return (
     <>
-      <div className="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white dark:bg-black p-6 ">
-        <div className="flex-none w-56 flex flex-row items-center">
-         
-          <img  src="./symbols@2x.png" />
-       
-
-          <button
-            id="sliderBtn"
-            className="flex-none text-right text-gray-900 hidden md:block"
-          >
-            <i className="fad fa-list-ul"></i>
-          </button>
+      <div className="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center justify-around bg-white dark:bg-black p-6 ">
+        <div className="flex-none w-56 flex flex-row items-center justify-around">
+          <img src="./symbols@2x.png" />
         </div>
-
+        <button
+          id="sliderBtn"
+          className="flex-none text-right text-gray-900 dark:text-white rounded dark:bg-gray-900  md:block ml-6 p-4 pt-2 pb-2 border outline-none active:outline-none focus:outline-none"
+          onClick={toggleDrawer}
+        >
+          <i className="fad fa-list-ul"></i>
+        </button>
         <button
           id="navbarToggle"
           className="hidden md:block md:fixed right-0 mr-6"

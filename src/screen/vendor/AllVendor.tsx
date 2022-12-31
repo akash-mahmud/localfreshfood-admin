@@ -9,6 +9,7 @@ import imageUrl from "../../utils/imageUrlFormat";
 const AllVendor = () => {
   const [page, setpage] = useState<number>(1);
   const { getVendor, vendors, loading, hasMore } = vendorStore();
+  const [actionOpen, setactionOpen] = useState(false)
   useEffect(() => {
     getVendor(1);
   }, []);
@@ -49,8 +50,9 @@ const AllVendor = () => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <button
+                onClick={() => setactionOpen((previousSate) => !previousSate)}
                 id="dropdownActionButton"
                 data-dropdown-toggle="dropdownAction"
                 className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
@@ -77,7 +79,9 @@ const AllVendor = () => {
 
               <div
                 id="dropdownAction"
-                className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                className={`${
+                  actionOpen ? "absolute" : "hidden"
+                } z-10 w-44 bg-white rounded divide-y right-[0%]  divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-1 text-sm text-gray-700 dark:text-gray-200"
